@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    ibm = {
+      source  = "IBM-Cloud/ibm"
+      version = "1.20.0"
+    }
+  }
+}
 # ibm provider + account key (identifier and pass)
 provider "ibm"{
   ibmcloud_api_key = "${var.ibmcloud_apikey}"
