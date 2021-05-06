@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: akmebank-ui
+  namespace: thinkdemo
+  labels:
+    app.kubernetes.io/part-of: akmebank
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: akmebank-ui-selector
+  template:
+    metadata:
+      labels:
+        app: akmebank-ui-selector
+    spec:
+      containers:
+      - name: akmebank-ui
+        image: IMAGE_AND_TAG
+        imagePullPolicy: Always
+        resources:
+           limits:
+             memory: 512Mi
+             cpu: 500m
+           requests:
+             memory: 256Mi
+             cpu: 250m
+
